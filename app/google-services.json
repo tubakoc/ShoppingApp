@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "674508281517",
+    "project_id": "shoppingapp-5585c",
+    "storage_bucket": "shoppingapp-5585c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:674508281517:android:0703ef40c9b1121beb1824",
+        "android_client_info": {
+          "package_name": "com.example.shoppingapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgincDNoadcHxiSHZxQdAtmiTVMeS_nVw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

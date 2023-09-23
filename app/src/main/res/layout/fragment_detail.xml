@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/addToFavorite"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/btn_basket"
+            android:backgroundTint="@color/lavender"
+            app:layout_constraintBottom_toTopOf="@+id/product_price"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBar"
+            app:layout_constraintVertical_bias="0.876"
+            app:srcCompat="@drawable/baseline_favorite" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
+            android:numStars="5"
+            android:stepSize="1.0"
+            app:layout_constraintBottom_toTopOf="@+id/addtocard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/product_price"
+            android:layout_width="79dp"
+            android:layout_height="26dp"
+            android:text='@{productModel.price + " ₺"}'
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_big"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/producttitle"
+            app:layout_constraintTop_toTopOf="@+id/producttitle"
+            tools:text="price" />
+
+        <TextView
+            android:id="@+id/producttitle"
+            android:layout_width="185dp"
+            android:layout_height="63dp"
+            android:layout_gravity="center"
+            android:text="@{productModel.title}"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_big"
+            android:textStyle="bold"
+
+            app:layout_constraintBottom_toTopOf="@+id/productDesc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/product_price"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/product_card"
+            app:layout_constraintVertical_bias="0.811"
+            tools:text="Product Title" />
+
+        <TextView
+            android:id="@+id/productDesc"
+            android:layout_width="400dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="24dp"
+            android:text="@{productModel.description}"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+
+            android:textSize="@dimen/text_size_medium"
+            app:layout_constraintBottom_toTopOf="@+id/ratingBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.454"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Product Desc" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/product_card"
+            android:layout_width="@dimen/image_card_width"
+            android:layout_height="@dimen/image_card_height"
+            app:cardCornerRadius="@dimen/card_corner_radius_small"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBar">
+
+            <ImageView
+                android:id="@+id/productImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                tools:srcCompat="@tools:sample/avatars" />
+
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBar"
+            android:layout_width="414dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="15dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="65dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/back_img">
+
+            </ImageView>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addtocard"
+            android:layout_width="255dp"
+            android:layout_height="51dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/button"
+            android:fontFamily="@font/alata"
+            android:text="Add To Card"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.466"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/salePrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/productDesc"
+        app:layout_constraintEnd_toEndOf="@+id/product_price"
+        app:layout_constraintStart_toStartOf="@+id/product_price" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
