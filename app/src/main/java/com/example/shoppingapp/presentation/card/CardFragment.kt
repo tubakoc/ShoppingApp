@@ -13,6 +13,7 @@ import com.example.shoppingapp.data.model.ClearCartRequest
 import com.example.shoppingapp.databinding.FragmentCardBinding
 import com.example.shoppingapp.presentation.adapters.CardAdapter
 import com.example.shoppingapp.presentation.adapters.CardListener
+import com.example.shoppingapp.presentation.home.HomeFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -45,15 +46,25 @@ class CardFragment : Fragment(R.layout.fragment_card),CardListener {
             recyclerView.adapter = cartAdapter
 
             deleteCard.setOnClickListener {
-                val clearCartRequest = ClearCartRequest(viewModel.currentUser!!.uid)
-                viewModel.clearCart(clearCartRequest)
+                val clearCartRequest = viewModel.currentUser!!.uid?.let { it1 ->
+                    ClearCartRequest(
+                        it1
+                    )
+                }
+                if (clearCartRequest != null) {
+                    viewModel.clearCart(clearCartRequest)
+                }
+            }
+
+            btnPaymen.setOnClickListener {
+                navigatePaymentScrenn()
             }
         }
 
         with(viewModel)
         {
 
-             getCartProducts(viewModel.currentUser!!.uid)
+            viewModel.currentUser!!.uid?.let { getCartProducts(it) }
         }
     }
 
@@ -101,5 +112,11 @@ class CardFragment : Fragment(R.layout.fragment_card),CardListener {
 
         viewModel.deleteFromCart(id)
     }
+
+ private fun navigatePaymentScrenn()
+ {
+     val action = CardFragmentDirections.cardToPayment()
+     findNavController().navigate(action)
+ }
 
 }

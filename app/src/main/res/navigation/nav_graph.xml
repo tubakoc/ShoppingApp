@@ -55,6 +55,9 @@
         <action
             android:id="@+id/cardToDetail"
             app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/cardToPayment"
+            app:destination="@id/paymentFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
@@ -83,5 +86,22 @@
         <action
             android:id="@+id/splashToSignIn"
             app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.example.shoppingapp.presentation.payment.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment" >
+        <action
+            android:id="@+id/paymentToSuccess"
+            app:destination="@id/successFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="com.example.shoppingapp.presentation.success.SuccessFragment"
+        android:label="SuccessFragment" >
+        <action
+            android:id="@+id/successToHome"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

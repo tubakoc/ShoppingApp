@@ -67,9 +67,9 @@
         android:contentDescription="FAB"
         android:scaleType="fitCenter"
         android:src="@drawable/add_shopping_cart"
+        android:visibility="gone"
         app:fabCustomSize="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/tv_product_price"
         app:maxImageSize="32dp" />
 

@@ -9,4 +9,13 @@
     <string name="home">Home</string>
     <string name="clear_card">Clear Card</string>
     <string name="Splashtext">Fashion App</string>
+    <string name="invalid_cardholder_name">"Please enter cardholder name"</string>
+    <string name="invalid_credit_card_number">"Please enter credit card number"</string>
+    <string name="invalid_month">"Please select month"</string>
+    <string name="invalid_year">"Please select year"</string>
+    <string name="invalid_cvc_code">"Please enter CVC code"</string>
+    <string name="invalid_address">"Please enter address"</string>
+    <string name="invalid_bag_products">"There are no products in the cart"</string>
+    <string name="invalid_cart_format">"Please enter your 16-digit card number"</string>
+
 </resources>

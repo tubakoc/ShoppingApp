@@ -1,6 +1,7 @@
 package com.example.shoppingapp.di
 
 
+
 import com.example.shoppingapp.data.repository.AuthRepo
 import com.example.shoppingapp.data.repository.AuthRepository
 import com.google.firebase.auth.FirebaseAuth
@@ -19,5 +20,6 @@ object FirebaseModule {
 
     @Provides
     fun provideAuthRepository(authRepository: AuthRepository): AuthRepo = authRepository
+
 
 }

@@ -53,13 +53,12 @@
         android:id="@+id/add_fav"
         android:layout_width="@dimen/_24sdp"
         android:layout_height="@dimen/_24sdp"
-        android:layout_marginBottom="140dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginBottom="192dp"
         android:background="@drawable/btn_basket"
         android:backgroundTint="@color/lavender"
         app:layout_constraintBottom_toTopOf="@+id/productsTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/productsImageView"
         app:srcCompat="@drawable/baseline_favorite" />
 </com.tistory.zladnrms.roundablelayout.RoundableLayout>

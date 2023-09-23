@@ -63,19 +63,27 @@ private val productDao: ProductDao) {
         }
     }
 
-    suspend fun getCartProducts(userId: String): Resource<List<Products>> {
-        return try {
-            val result = remoteDAOInterface.getCartProducts(userId).products
 
-            if (result.isNullOrEmpty()) {
-                Resource.Error(Exception("Cart Empty"))
+    suspend fun getCartProducts(userId: String): Resource<List<ProductUI>> {
+        return try {
+            val getFavoriteIds = getFavoriteIds()
+            val result = remoteDAOInterface.getCartProducts(userId)
+
+            if (result.status == 200) {
+                Resource.Success(result.products.orEmpty().map {
+                    it.mapToProductUI(isFavorite = getFavoriteIds.contains(it.id))
+                })
             } else {
-                Resource.Success(result)
+                Resource.Error(Exception("Cart Empty"))
             }
         } catch (e: Exception) {
             Resource.Error(e)
         }
     }
+
+
+
+
 /*
     suspend fun getSearchProducts(query: String): Resource<List<Products>> {
         return try {
@@ -123,6 +131,7 @@ private val productDao: ProductDao) {
             Resource.Error(e)
         }
     }
+    /*
     suspend fun deleteFromCart(deleteFromCartRequest: DeleteFromCartRequest): Resource<BaseResponse> {
         return try {
             val result = remoteDAOInterface.deleteFromCart(deleteFromCartRequest)
@@ -136,6 +145,19 @@ private val productDao: ProductDao) {
             Resource.Error(e)
         }
     }
+
+
+
+     */
+
+
+    suspend fun deleteFromCart(id: Int): Resource<BaseResponse> =
+        try {
+            Resource.Success(remoteDAOInterface.deleteFromCart(DeleteFromCartRequest(id)))
+        } catch (e: Exception) {
+            Resource.Error(e)
+        }
+
 
 
     suspend fun clearCart(clearCartRequest: ClearCartRequest): Resource<BaseResponse> {
@@ -152,6 +174,8 @@ private val productDao: ProductDao) {
         }
         getCartProducts(FirebaseAuth.getInstance().currentUser!!.uid)
     }
+
+
 
     suspend fun addToFavorites(product: ProductUI) {
         productDao.addToFavorites(product.mapToProductEntity())

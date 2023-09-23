@@ -2,8 +2,10 @@ package com.example.shoppingapp.di
 
 
 import com.example.shoppingapp.data.local.ProductDao
+import com.example.shoppingapp.data.repository.AuthRepository
 import com.example.shoppingapp.data.repository.ProductsRepository
 import com.example.shoppingapp.data.retrofit.RemoteDAOInterface
+import com.google.firebase.auth.FirebaseAuth
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
